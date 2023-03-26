@@ -9,7 +9,7 @@ Nie wszystkie jednak spółki tworzące indeks wykorzystują swój potencjał or
 Z tego powodu zdecydowaliśmy przygotować projekt, którego celem byłoby wybranie 100 spółek spośród S&P500, z których stworzone portfolio umożliwiałoby osiągnięcie wyższych zysków przy zachowaniu podobnego poziomu ryzyka co pierwotny indeks.
 
 Efektywnie stworzone portfolio można traktować jako własny indeks, poprzez określnie odpowiednich parametrów jego struktury (wag - ilościowy udział akcji danej spółki w indeksie), w którego tworzeniu S&P500 posłuży nam jako benchmark. W odróżnieniu od S&P500, które wagi ustala za pomocą równania:
-$$ weight = company_market_cap /over index_market_cap $$
+$$ weight = {company_market_cap /over index_market_cap} $$
 
 Następnie porównamy stworzony przez nas indeks, S&P100 oraz ich prognozy.
 
