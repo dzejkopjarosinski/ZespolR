@@ -32,9 +32,9 @@ Następnie porównamy stworzony przez nas indeks, S&P100 oraz ich prognozy.
 # 2. Opis danych oraz ich źródła
 
 Dane dotyczące S&P 500 oraz tworzących je spółek zaciągane będą za pomocą Yahoo Finance API.
-
+Przykładowo:
 ```python
 import yfinance as yf
-data = yf.download("SPY AAPL", start="2017-01-01", end="2017-04-30")
-
-
+data = yf.download("SPY AAPL", start="2003-01-01", end="2023-04-30")
+```
+Podstawowe statystyki - TODO
