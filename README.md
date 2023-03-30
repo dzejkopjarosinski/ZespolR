@@ -32,13 +32,17 @@ Następnie porównamy stworzony przez nas indeks, S&P100 oraz ich prognozy.
 # 2. Opis danych oraz ich źródła
 Dane przedstawiają wartość indeksu giełdowego SP500 z ostatnich 20 lat (2003-2023)
 SP 500 charakteryzowało się trędem wzrostowym o dużej zmienności i odchyleniu od średniej.
+![image](https://user-images.githubusercontent.com/63823444/228917161-e3b4664e-d0c9-4fd6-b0c9-759c9d3a4715.png)
+
 
 - Największa uśredniona zmienność roczna indeksu wynosiła: 32%
 - Najmniejsza uśreniona zmienność roczna indeksu wynosiła: 2%
 
 Wartość SP 500:
-- Najmniejsza wartość indeksu występuje w badanym okresie w 2009 roku i wynosi 679.280029$
-- Najwięsza watrtość indeksu występuje w badanym okresie w 2021 roku i wynosi 4818.620117$
+- Najmniejsza wartość indeksu występuje w badanym okresie w 2009 roku i wyniosła 679.280029$
+- Najwięsza watrtość indeksu występuje w badanym okresie w 2021 roku i wyniosła 4818.620117$
+
+Odchylenie standardowe od średniej w badanym okresie wyniosło: 1012.430192$
 
 
 Dane dotyczące S&P 500 oraz tworzących je spółek zaciągane będą za pomocą Yahoo Finance API.
