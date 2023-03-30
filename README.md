@@ -36,6 +36,10 @@ SP 500 charakteryzowało się trędem wzrostowym o dużej zmienności i odchylen
 - Największa uśredniona zmienność roczna indeksu wynosiła: 32%
 - Najmniejsza uśreniona zmienność roczna indeksu wynosiła: 2%
 
+Wartość SP 500:
+- Najmniejsza wartość indeksu występuje w badanym okresie w 2009 roku i wynosi 679.280029$
+- Najwięsza watrtość indeksu występuje w badanym okresie w 2021 roku i wynosi 4818.620117$
+
 
 Dane dotyczące S&P 500 oraz tworzących je spółek zaciągane będą za pomocą Yahoo Finance API.
 Przykładowo:
