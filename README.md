@@ -44,6 +44,8 @@ Wartość SP 500:
 
 Odchylenie standardowe od średniej w badanym okresie wyniosło: 1012.430192$
 
+Do zrobienia: Dzienne zmiany, Wykres słupowy zmian rocznych, współczynnik zmienności, średni roczny zwrot
+
 
 Dane dotyczące S&P 500 oraz tworzących je spółek zaciągane będą za pomocą Yahoo Finance API.
 Przykładowo:
