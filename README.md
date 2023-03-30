@@ -33,8 +33,8 @@ Następnie porównamy stworzony przez nas indeks, S&P100 oraz ich prognozy.
 Dane przedstawiają wartość indeksu giełdowego SP500 z ostatnich 20 lat (2003-2023)
 SP 500 charakteryzowało się trędem wzrostowym o dużej zmienności i odchyleniu od średniej.
 
-Największa uśredniona zmienność roczna indeksu wynosiła: 32%
-Najmniejsza uśreniona zmienność roczna indeksu wynosiła 2%
+-Największa uśredniona zmienność roczna indeksu wynosiła: 32%
+-Najmniejsza uśreniona zmienność roczna indeksu wynosiła 2%
 
 
 Dane dotyczące S&P 500 oraz tworzących je spółek zaciągane będą za pomocą Yahoo Finance API.
