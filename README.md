@@ -54,5 +54,6 @@ import yfinance as yf
 data = yf.download("SPY AAPL", start="2003-01-01", end="2023-04-30")
 ```
 Podstawowe statystyki:
+
 ![image](https://user-images.githubusercontent.com/63823444/232218363-00bd74cc-426d-4c1c-b378-2e03a3ca5cd1.png)
 
