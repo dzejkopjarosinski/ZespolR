@@ -9,8 +9,8 @@ Nie wszystkie jednak spółki tworzące indeks wykorzystują swój potencjał or
 Z tego powodu zdecydowaliśmy się przygotować projekt, którego celem byłoby wybranie spółek spośród S&P500, z których stworzone portfolio umożliwiałoby osiągnięcie wyższych zysków w określonym okresie czasowym.
 
 Efektywnie stworzone portfolio można traktować jako własny indeks, w którym każda ze spółek ma równy udział.
-
 Następnie porównamy stworzony przez nas indeks, S&P100 oraz ich prognozy.
+
 W trakcie pracy nad projektem natrafiliśmy na rozwiązanie, które w dużej mierze stało się dla nas inspiracją:
 https://github.com/robertmartin8/MachineLearningStocks#financials
 W swojej pracy wykorzystaliśmy również dane zebrane przez autora powyższego rozwiązania. Sięgają one do 2003 roku oraz zebrane zostały za pomocą różnych metod.
@@ -47,7 +47,7 @@ Odchylenie standardowe od średniej w badanym okresie wyniosło: 1012.430192$
 Do zrobienia: Dzienne zmiany, Wykres słupowy zmian rocznych, współczynnik zmienności, średni roczny zwrot
 
 
-Dane dotyczące S&P 500 oraz tworzących je spółek zaciągane będą za pomocą Yahoo Finance API.
+Dane dotyczące S&P 500 oraz tworzących je spółek zaciągane będą za pomocą Yahoo Finance API oraz będziemy korzystać z danych przygotowanych w początkowo wymienionym repozytorium.
 Przykładowo:
 ```python
 import yfinance as yf
