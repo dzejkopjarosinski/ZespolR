@@ -11,6 +11,10 @@ Z tego powodu zdecydowaliśmy się przygotować projekt, którego celem byłoby 
 Efektywnie stworzone portfolio można traktować jako własny indeks, w którym każda ze spółek ma równy udział.
 
 Następnie porównamy stworzony przez nas indeks, S&P100 oraz ich prognozy.
+W trakcie pracy nad projektem natrafiliśmy na rozwiązanie, które w dużej mierze stało się dla nas inspiracją:
+https://github.com/robertmartin8/MachineLearningStocks#financials
+W swojej pracy wykorzystaliśmy również dane zebrane przez autora powyższego rozwiązania. Sięgają one do 2003 roku oraz zebrane zostały za pomocą różnych metod.
+Zdecydowaliśmy się na to ze względu na ograniczoną dostępnosć danych finansowych dotyczących spółek oferowanych za darmo.
 
 # 1. Wymagania funkcjonalne i techniczne
 ## Wymagania techniczne
