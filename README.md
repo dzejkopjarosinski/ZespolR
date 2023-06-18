@@ -57,3 +57,24 @@ Podstawowe statystyki:
 
 ![image](https://user-images.githubusercontent.com/63823444/232218363-00bd74cc-426d-4c1c-b378-2e03a3ca5cd1.png)
 
+## Problemy napotkane podczas gromadzenia danych
+Dane finansowe dotyczące financial statements spółek giełdowych sprzed roku 2018 nie były dostępne za darmo.
+Wykorzystaliśmy więc do trenowania modelu zbiór przygotowany przez pasjonata:
+
+Dane autorstwa: https://github.com/robertmartin8/ 
+SP500 Index : Yahoo Finance API
+Poszczególne spółki :  stock_prices.csv
+Wskaźniki techniczne i finansowe: keystats.csv
+Zbiór predykcyjny szacowany: forward_sample.csv
+
+##Transformacje dokonane na danych:
+Sprawozdania finansowe dostarczane w różnych okresach
+Szacowane wartości następnych sprawozdań
+Konieczność zastosowania cen aktualnych w celu określenia klasyfikatora do weryfikacji wyniku
+Zaniżona wartość accuracy wywołana naruszeniem cyklu wahań rynkowych poprzez dokonanie predykcji w określonym momencie
+Rynki są zamknięte w Weekend
+
+#3. Wyniki
+Wynikiem działania modelu jest zestaw spółek, na którego bazie budować można model manipulujacy wagami oraz tworzący z nich index.
+W naszym przypadku analizę zakończyliśmy na wyniku przez nas otrzymanym oraz zawartym w raporrcie
+
