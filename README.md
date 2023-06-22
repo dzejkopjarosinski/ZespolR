@@ -75,5 +75,17 @@ Rynki są zamknięte w Weekend
 
 #3. Wyniki
 Wynikiem działania modelu jest zestaw spółek, na którego bazie budować można model manipulujacy wagami oraz tworzący z nich index.
-W naszym przypadku analizę zakończyliśmy na wyniku przez nas otrzymanym oraz zawartym w raporrcie
+W naszym przypadku analizę zakończyliśmy na wyniku przez nas otrzymanym oraz zawartym w raporcie.
+
+##Transformacje Danych
+![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/bd203888-6dff-4a34-9de6-1689c9ef1a8f)
+
+##Model
+```python
+rfc = RandomForestClassifier(n_estimators = 100, random_state=0, criterion= 'gini')
+rfc.fit(X_train, y_train)
+
+importances = rfc.feature_importances_
+std = np.std([tree.feature_importances_ for tree in rfc.estimators_], axis=0)
+```
 
