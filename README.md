@@ -3,25 +3,23 @@ Repozytorium zespolu projektowego przedmiotu uczenie maszynowe w finansach
 
 # Cel i założenia projektu
 
-S&P500 cieszy się sporą popularnością wśród inwestorów ze względu na historycznie znany wysoki performance oraz obietnicę wysokich zysków.
+S&P500 cieszy się sporą popularnością wśród inwestorów ze względu na historycznie znany wysoki performance oraz obietnicę wysokich zysków. Pomimo faktu, że inwestowanie w akcje obarczone jest sporym ryzykiem, indeksy takie jak SP500 uznawane są za w miarę bezpieczną inwestycje gdyż dywersyfikują one ryzyko inwestycyjne między wiele dużych i obiecujących spółek. 
 Nie wszystkie jednak spółki tworzące indeks wykorzystują swój potencjał oraz wpływają pozytywnie na jego waluację.
 
-Z tego powodu zdecydowaliśmy się przygotować projekt, którego celem byłoby wybranie spółek spośród S&P500, z których stworzone portfolio umożliwiałoby osiągnięcie wyższych zysków w określonym okresie czasowym.
+Z tego powodu zdecydowaliśmy się przygotować projekt, którego celem byłoby wybranie spółek spośród S&P500, z których stworzone portfolio umożliwiałoby osiągnięcie wyższych zysków w określonym okresie czasowym, przy zachowaniu podobnego do SP500 ryzyka..
 
 Efektywnie stworzone portfolio można traktować jako własny indeks, w którym każda ze spółek ma równy udział.
 Następnie porównamy stworzony przez nas indeks, S&P100 oraz ich prognozy.
 
 W trakcie pracy nad projektem natrafiliśmy na rozwiązanie, które w dużej mierze stało się dla nas inspiracją:
 https://github.com/robertmartin8/MachineLearningStocks#financials
-W swojej pracy wykorzystaliśmy również dane zebrane przez autora powyższego rozwiązania. Sięgają one do 2003 roku oraz zebrane zostały za pomocą różnych metod.
-Zdecydowaliśmy się na to ze względu na ograniczoną dostępnosć danych finansowych dotyczących spółek oferowanych za darmo.
+W swojej pracy wykorzystaliśmy również dane zebrane przez autora powyższego rozwiązania. Sięgają one do 2003 roku oraz zebrane zostały za pomocą różnych metod (głównie parsowania starej wersji strony yahoo finance).
+Zdecydowaliśmy się na to ze względu na ograniczoną dostępnosć danych finansowych dotyczących spółek wchodzących w skład SP500. Dane tego typu są dostępne, jednak nie są darmowe.
 
 # 1. Wymagania funkcjonalne i techniczne
 ## Wymagania techniczne
 - Wykorzystywany jest język programowania Python
-- Biblioteki oraz inne dependencies określone zostaną w trakcie przygotowania modelu w zależności od zapotrzebowania. Pełna lista wykorzystanych bibliotek dostępna będzie w postaci pliku requirements.txt
-- Do znanych należą: Yahoo Finance, sklearn, pandas, numpy 
-- Potencjalne: TensorFlow, Prophet, Keras, matplotlib/seaborn, plotly, requests (API TradingView, Yahoo Finance)
+- Biblioteki wykorzystane do realizacji projektu to Scikit-Learn, pandas, datetime, yfinance, numpy.
 ##Wymagania funkcjonalne
 - Model będzie w stanie wykorzystywać dane przedstawione w postaci dziennej (timeframe- 1D) na podstawie ostatnich 20 lat
 - Model będzie w stanie na podstawie wyników finansowych oraz podstawowych wskaźników oszacować potencjalną wartość inwestycyjną spółki (w postaci podziału na spółki o prognozowanym wzroście o 10% większym niż S&P500)
@@ -41,13 +39,14 @@ SP 500 charakteryzowało się trędem wzrostowym o dużej zmienności i odchylen
 Wartość SP 500:
 - Najmniejsza wartość indeksu występuje w badanym okresie w 2009 roku i wyniosła 679.280029$
 - Najwięsza watrtość indeksu występuje w badanym okresie w 2021 roku i wyniosła 4818.620117$
+- Największy możliwy do zrealizowania zwrot na jednej inwestycji w badanym okresie wynosi 709% (założenie kupna po najmniejszej wartości indeksu i sprzedaży, gdy jego wartość była największa). 
 
 Odchylenie standardowe od średniej w badanym okresie wyniosło: 1012.430192$
 
 Do zrobienia: Dzienne zmiany, Wykres słupowy zmian rocznych, współczynnik zmienności, średni roczny zwrot
 
 
-Dane dotyczące S&P 500 oraz tworzących je spółek zaciągane będą za pomocą Yahoo Finance API oraz będziemy korzystać z danych przygotowanych w początkowo wymienionym repozytorium.
+Dane dotyczące S&P 500 oraz tworzących je spółek są zaciągane za pomocą Yahoo Finance API oraz będziemy korzystać z danych przygotowanych w początkowo wymienionym repozytorium.
 Przykładowo:
 ```python
 import yfinance as yf
