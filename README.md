@@ -87,6 +87,8 @@ y_test = [
   ```
 
 ##Model
+Jako główny model został wykorzystany las losowy ze 100 estymatorami oraz random_state = 0.
+
 ```python
 rfc = RandomForestClassifier(n_estimators = 100, random_state=0, criterion= 'gini')
 rfc.fit(X_train, y_train)
