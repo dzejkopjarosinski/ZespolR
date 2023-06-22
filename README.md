@@ -78,7 +78,13 @@ Wynikiem działania modelu jest zestaw spółek, na którego bazie budować moż
 W naszym przypadku analizę zakończyliśmy na wyniku przez nas otrzymanym oraz zawartym w raporcie.
 
 ##Transformacje Danych
-![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/bd203888-6dff-4a34-9de6-1689c9ef1a8f)
+```python
+y_test = [
+  1 if stock_p_change - SP500_p_change >= OUTPERFORMANCE else 0
+  for stock_p_change, SP500_p_change in zip(
+      data_for_test_set["stock_p_change"], data_for_test_set["SP500_p_change"]
+  )]
+  ```
 
 ##Model
 ```python
@@ -88,4 +94,7 @@ rfc.fit(X_train, y_train)
 importances = rfc.feature_importances_
 std = np.std([tree.feature_importances_ for tree in rfc.estimators_], axis=0)
 ```
+
+![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/3a44592d-0098-4b97-9c9d-9525c50ba62a)
+
 
