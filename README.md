@@ -100,4 +100,5 @@ std = np.std([tree.feature_importances_ for tree in rfc.estimators_], axis=0)
 
 ![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/3a44592d-0098-4b97-9c9d-9525c50ba62a)
 
+![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/adc6d00a-81bf-4f87-8e6f-05320bc685ae)
 
