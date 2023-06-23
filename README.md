@@ -56,7 +56,7 @@ Podstawowe statystyki:
 
 ![image](https://user-images.githubusercontent.com/63823444/232218363-00bd74cc-426d-4c1c-b378-2e03a3ca5cd1.png)
 
-## Problemy napotkane podczas gromadzenia danych
+# Problemy napotkane podczas gromadzenia danych
 Dane finansowe dotyczące financial statements spółek giełdowych sprzed roku 2018 nie były dostępne za darmo.
 Wykorzystaliśmy więc do trenowania modelu zbiór przygotowany przez pasjonata:
 
@@ -66,7 +66,7 @@ Poszczególne spółki :  stock_prices.csv
 Wskaźniki techniczne i finansowe: keystats.csv
 Zbiór predykcyjny szacowany: forward_sample.csv
 
-##Transformacje dokonane na danych:
+#Transformacje dokonane na danych:
 Sprawozdania finansowe dostarczane w różnych okresach
 Szacowane wartości następnych sprawozdań
 Konieczność zastosowania cen aktualnych w celu określenia klasyfikatora do weryfikacji wyniku
@@ -77,7 +77,7 @@ Rynki są zamknięte w Weekend
 Wynikiem działania modelu jest zestaw spółek, na którego bazie budować można model manipulujacy wagami oraz tworzący z nich index.
 W naszym przypadku analizę zakończyliśmy na wyniku przez nas otrzymanym oraz zawartym w raporcie.
 
-##Transformacje Danych
+#Transformacje Danych
 ```python
 y_test = [
   1 if stock_p_change - SP500_p_change >= OUTPERFORMANCE else 0
@@ -86,7 +86,7 @@ y_test = [
   )]
   ```
 
-##Model
+#Model
 Jako główny model został wykorzystany las losowy ze 100 estymatorami oraz random_state = 0.
 
 ```python
