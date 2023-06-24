@@ -80,14 +80,28 @@ Ponieważ rynki akcyjne zamknięte są w weekendy, ale sprawozdania finansowe mo
 Wynikiem działania modelu jest zestaw spółek, na którego bazie budować można model manipulujacy wagami oraz tworzący z nich index.
 W naszym przypadku analizę zakończyliśmy na wyniku przez nas otrzymanym oraz zawartym w raporcie.
 
-#Transformacje Danych
+## Przygotowanie datasetu treningowego i walidacyjnego 
 ```python
-y_test = [
+training_data = keystats.set_index('Date')
+training_data.dropna(axis=0, how='any', inplace=True)
+features = training_data.columns[6:]
+
+X_train = training_data[features].values
+
+OUTPERFORMANCE = 10
+
+y_train = [
   1 if stock_p_change - SP500_p_change >= OUTPERFORMANCE else 0
   for stock_p_change, SP500_p_change in zip(
-      data_for_test_set["stock_p_change"], data_for_test_set["SP500_p_change"]
+      training_data["stock_p_change"], training_data["SP500_p_change"]
   )]
+
   ```
+
+W pliku keystats znajdują się różnego rodzaju wskaźniki obliczone na bazie sprawozdań finansowych spółek X_train to właśnie te wskaźniki. Zbiór walidacyjny y_train obliczany jest natomiast przez sprawdzenie, które spółki dają wynik lepszy od indeksu o minimum wartość zmiennej OUTPERFORMANCE (w tym przypadku 10). 
+
+
+
 
 # Wyniki
 Jako główny model został wykorzystany las losowy ze 100 estymatorami oraz random_state = 0.
@@ -100,7 +114,10 @@ importances = rfc.feature_importances_
 std = np.std([tree.feature_importances_ for tree in rfc.estimators_], axis=0)
 ```
 
+Poniżej algorytm pokazuje, które cechy są najlepszym splitem oraz wyznacznikiem tego czy spółka powinna trafić do nowego indeksu czy też nie.
 ![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/3a44592d-0098-4b97-9c9d-9525c50ba62a)
 
+
+Koszyk spółek może się różnić w zależności od momentu na który algorytm jest uruchomiony. Rezultat powstały z wybrania spółek na początek 2014 roku, jest następujący:
 ![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/adc6d00a-81bf-4f87-8e6f-05320bc685ae)
 
