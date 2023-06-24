@@ -113,8 +113,8 @@ rfc.fit(X_train, y_train)
 importances = rfc.feature_importances_
 std = np.std([tree.feature_importances_ for tree in rfc.estimators_], axis=0)
 ```
-
 Poniżej algorytm pokazuje, które cechy są najlepszym splitem oraz wyznacznikiem tego czy spółka powinna trafić do nowego indeksu czy też nie.
+
 ![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/3a44592d-0098-4b97-9c9d-9525c50ba62a)
 
 
