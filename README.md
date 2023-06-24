@@ -29,8 +29,9 @@ Przykładowo:
 import yfinance as yf
 data = yf.download("SPY AAPL", start="2003-01-01", end="2023-04-30")
 ```
+Powyższe założenie pomimo usilnych prób nie zostało spełnione. Podczas przygotowywania danych doszliśmy do problemu związanego ze ścianą kosztową, która opisana jest w dalszej części. 
 
-Innym źródłem danych są dla nas również csvki pozyskane od użytkownika @robertmartin8
+Innym źródłem danych są dla nas również pliki zawierajace dane parsowane z portalu Yahoo Finance, ktore nie sa juz ogolnodostepne. Pozyskane zostały one w naszym przypadku od użytkownika @robertmartin8
 https://github.com/robertmartin8/MachineLearningStocks#financials
 
 # 3. Opis Pozyskanych danych
@@ -67,12 +68,13 @@ Poszczególne spółki :  stock_prices.csv
 Wskaźniki techniczne i finansowe: keystats.csv
 Zbiór predykcyjny szacowany: forward_sample.csv
 
-#Transformacje dokonane na danych:
-Sprawozdania finansowe dostarczane w różnych okresach
-Szacowane wartości następnych sprawozdań
-Konieczność zastosowania cen aktualnych w celu określenia klasyfikatora do weryfikacji wyniku
+# Transformacje dokonane na danych:
+Sprawozdania finansowe dostarczane w różnych okresach spowodowały potrzebe określenia wartości cen akcji oraz SP500 na konkretny dzień dla każdej z nich.
+Szacowane wartości następnych sprawozdań uzyskane zostały na okres szacunkowy 02.01.2014.
+Konieczność zastosowania cen aktualnych w celu określenia klasyfikatora do weryfikacji wyniku stworzyła potrzebę utworzenia zbioru danych zawierających dzienne ceny akcji wszystkich 500 spółek.
 Zaniżona wartość accuracy wywołana naruszeniem cyklu wahań rynkowych poprzez dokonanie predykcji w określonym momencie
-Rynki są zamknięte w Weekend
+Ponieważ rynki akcyjne zamknięte są w weekendy, ale sprawozdania finansowe mogą zostać udostępnione w te dni, ceny akcji oraz sp500 z konkretnego dnia weekendu zostały przyjęte jako ceny z najbliższego dnia z otwartym rynkiem (poniedzialek).
+
 
 # 4. Model
 Wynikiem działania modelu jest zestaw spółek, na którego bazie budować można model manipulujacy wagami oraz tworzący z nich index.
