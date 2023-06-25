@@ -23,16 +23,20 @@ Wykorzystane zostaną również dane pozyskane przez autora powyższego rozwiąz
 
 
 # 2. Źródła Pozyskanych danych
-Dane dotyczące S&P 500 oraz tworzących je spółek są zaciągane za pomocą Yahoo Finance API oraz będziemy korzystać z danych przygotowanych w początkowo wymienionym repozytorium.
+Dane dotyczące S&P 500 oraz tworzących je spółek są zaciągane za pomocą Yahoo Finance API.
 Przykładowo:
 ```python
 import yfinance as yf
 data = yf.download("SPY AAPL", start="2003-01-01", end="2023-04-30")
 ```
+Dane finansowe spółek są pozyskiwane za pomocą metody znajdującej się w pliku MLF_2.ipynb. 
+
 Powyższe założenie pomimo usilnych prób nie zostało spełnione. Podczas przygotowywania danych doszliśmy do problemu związanego ze ścianą kosztową, która opisana jest w dalszej części. 
 
-Innym źródłem danych są dla nas również pliki zawierajace dane parsowane z portalu Yahoo Finance, ktore nie sa juz ogolnodostepne. Pozyskane zostały one w naszym przypadku od użytkownika @robertmartin8
+Innym źródłem danych są również pliki zawierajace dane parsowane z portalu Yahoo Finance, ktore nie sa juz ogolnodostepne. Pozyskane zostały one w naszym przypadku od użytkownika @robertmartin8
 https://github.com/robertmartin8/MachineLearningStocks#financials
+
+* Z racji luki w dostępie do darmowych danych finansowych (pobrane pliki csv są do 2014, natomiast dane pobrane z API od 2018 do 2023) model używa danych do momentu w których została przerwana ich ciągłość (wybieranie spółek do indeksu może więc na podstawie pozyskanych danych nastąpić maskymalnie na początku 2014 roku)
 
 # 3. Opis Pozyskanych danych
 Dane przedstawiają wartość indeksu giełdowego SP500 z ostatnich 20 lat (2003-2023)
@@ -98,12 +102,9 @@ y_train = [
 
   ```
 
-W pliku keystats znajdują się różnego rodzaju wskaźniki obliczone na bazie sprawozdań finansowych spółek X_train to właśnie te wskaźniki. Zbiór walidacyjny y_train obliczany jest natomiast przez sprawdzenie, które spółki dają wynik lepszy od indeksu o minimum wartość zmiennej OUTPERFORMANCE (w tym przypadku 10). 
+W pliku keystats znajdują się różnego rodzaju wskaźniki obliczone na bazie sprawozdań finansowych spółek X_train to właśnie te wskaźniki. Zbiór walidacyjny y_train to w rzeczywistości zmapowany zbiór nazw wszystkich spółek, jednak z wyróżnieniem tych w których przypadku wynik jest przynajmniej lepszy od indeksu o wartość zmiennej OUTPERDORMANCE. Model dokonuje więc predykcji tego, które dostępnych mu spółek osiągną dany Outperformance na podstawie przedstawionego mu wcześniej zbioru statystyk finansowych. 
 
 
-
-
-# Wyniki
 Jako główny model został wykorzystany las losowy ze 100 estymatorami oraz random_state = 0.
 
 ```python
@@ -113,11 +114,22 @@ rfc.fit(X_train, y_train)
 importances = rfc.feature_importances_
 std = np.std([tree.feature_importances_ for tree in rfc.estimators_], axis=0)
 ```
-Poniżej algorytm pokazuje, które cechy są najlepszym splitem oraz wyznacznikiem tego czy spółka powinna trafić do nowego indeksu czy też nie.
 
+# Wyniki
+Liczba spółek oraz ich symbole, wybrane przez model na początek 2014 roku.
+![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/c98a99e0-a215-4ea2-93ca-bbad0688b0a9)
+
+
+Poniżej algorytm pokazuje na podstawie indeksu Giniego, które cechy są najlepszym splitem oraz wyznacznikiem tego czy spółka powinna trafić do nowego indeksu czy też nie.
 ![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/3a44592d-0098-4b97-9c9d-9525c50ba62a)
 
 
-Koszyk spółek może się różnić w zależności od momentu na który algorytm jest uruchomiony. Rezultat powstały z wybrania spółek na początek 2014 roku, jest następujący:
+Koszyk spółek może się różnić w zależności od momentu na który algorytm jest uruchomiony. Dla indesku stworzonego ze spółek wybranych przez model na początku 2014 roku, zwrot przyrównany do SP500 wygląda następująco:
 ![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/adc6d00a-81bf-4f87-8e6f-05320bc685ae)
+
+* Index modelowy przewyższał średnio wynik SP500 o 18.8 %
+* Korelacja między indeksem a SP500 wyniosła 99.1%
+* Odchylenie standardowe dla obu indesów wyniosło 27.5%
+
+Powyższe informacje pokazują więc, że model zgodnie z założeniem stworzył indeks który charakteryzuje się podobnym do SP500 poziomem ryzyka, zapewniając jednocześnie potencjalnie wyższe zyski.
 
