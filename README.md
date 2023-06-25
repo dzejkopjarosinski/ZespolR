@@ -80,6 +80,7 @@ Zaniżona wartość accuracy wywołana naruszeniem cyklu wahań rynkowych poprze
 Ponieważ rynki akcyjne zamknięte są w weekendy, ale sprawozdania finansowe mogą zostać udostępnione w te dni, ceny akcji oraz sp500 z konkretnego dnia weekendu zostały przyjęte jako ceny z najbliższego dnia z otwartym rynkiem (poniedzialek).
 
 
+
 # 4. Model
 Wynikiem działania modelu jest zestaw spółek, na którego bazie budować można model manipulujacy wagami oraz tworzący z nich index.
 W naszym przypadku analizę zakończyliśmy na wyniku przez nas otrzymanym oraz zawartym w raporcie.
@@ -121,6 +122,7 @@ Liczba spółek oraz ich symbole, wybrane przez model na początek 2014 roku.
 
 
 Poniżej algorytm pokazuje na podstawie indeksu Giniego, które cechy są najlepszym splitem oraz wyznacznikiem tego czy spółka powinna trafić do nowego indeksu czy też nie.
+
 ![image](https://github.com/dzejkopjarosinski/ZespolR/assets/63823444/3a44592d-0098-4b97-9c9d-9525c50ba62a)
 
 
